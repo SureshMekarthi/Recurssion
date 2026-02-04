@@ -11,9 +11,9 @@ namespace Recurssion
         static void Main(string[] args)
         {
             //print numbers from 5 to 1
-            int n = 5;
+            int n = 1342;
             // Print(n);
-           int resul = Fac(n);
+           int resul = Product(n);
             Console.WriteLine(resul);
 
             Console.ReadLine();
@@ -51,6 +51,23 @@ namespace Recurssion
                 return 1;
 
             return n * Fac(n - 1);
+        }
+
+        static int Sum1(int n)
+        {
+            if (n == 0)
+            { return 0; }
+
+        
+            return  n%10+Sum1(n/10);
+        }
+
+        static int Product(int n)
+        {
+            if (n == 0)
+                return 1;
+
+            return n % 10 * Product(n / 10);
         }
     }
 }
