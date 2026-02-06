@@ -13,31 +13,62 @@ namespace Recurssion
         static void Main(string[] args)
         {
            
-            int n = 1824;
-            Console.WriteLine(ReverseNum(n));
+            int n = 9;
+            Console.WriteLine(Power(2,n));
 
 
             Console.ReadLine();
         }
 
-       
-
-        static int ReverseNum(int n)
+       static int xpowern(int x, int n)
         {
-             int result = 0;
-            while (n > 0)
-            {
-                result = result * 10;
-                result = (n % 10) + result;
-              
-                n = n / 10;
-            }
-            return result;
+            if(n==0) return 1;
+            if(x==0) return 0;
+
+            return x * xpowern(x, n - 1);
         }
 
-       
+        static int xpowern2(int x, int n)
+        {
+            if (n==0)
+            {
+                return 1;
+            }
+            if(x==0) return 0;
+            if (n % 2 == 0)
+            {
 
-        
+                return xpowern2(x, n / 2) * xpowern2(x, n / 2);
+            }
+            else
+            {
+                return x* xpowern2(x, n / 2) * xpowern2(x, n / 2);
+            }
+
+        }
+
+        static int Power(int x, int n)
+        {
+            if (n == 0) return 1;
+            if (x == 0) return 0;
+
+            int half = Power(x, n / 2);
+
+            if (n % 2 == 0)
+                return half * half;
+            else
+                return x * half * half;
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }
 
